@@ -1,0 +1,3 @@
+module Flickrcollage
+  VERSION = "0.1.0"
+end
