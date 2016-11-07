@@ -10,7 +10,7 @@ module FlickrService
    end
 
    def query_by_keyword(keyword = nil)
-     return nil if keyword.nil?
+     return nil unless keyword
 
      options = {text: keyword, media: :photos, per_page: 1, page: 1, content_type: 1, sort: 'interestingness-desc' }
      photo = @flickr.photos.search(options).first
@@ -19,7 +19,7 @@ module FlickrService
 
      FlickRaw.url_c(info) unless photo.nil?
    rescue Exception => e
-     fail QueryFlickrException, "Error searching image from flickr: #{e.message}"
+     raise "Error searching image from flickr: #{e.message}"
    end
 
  end
