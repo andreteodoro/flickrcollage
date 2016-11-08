@@ -7,18 +7,18 @@ describe FlickrService::FlickrApi do
 
   UrlRegex = /https?:\/\/[-_a-zA-Z0-9.\/]+/
 
-  describe 'initialize' do
-    it 'should intitialize correctly' do
+  describe 'Test the initialization' do
+    it 'intitialize correctly' do
       expect(service).to_not be_nil
     end
   end
 
-  describe 'query photo by keyword' do
-    it 'should fail with an empty keyword' do
+  describe 'Query photo by keyword' do
+    it 'fail with an empty keyword' do
       expect(service.query_by_keyword).to be_nil
     end
 
-    it 'should return a valid url' do
+    it 'return a valid url' do
       url = service.query_by_keyword(keyword)
       expect(url).to_not be_nil
       expect(url).to match(UrlRegex)
