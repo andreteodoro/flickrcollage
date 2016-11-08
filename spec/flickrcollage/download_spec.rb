@@ -7,12 +7,12 @@ describe FlickrService::Download do
   let(:keyword) { 'Etventure' }
   let(:url) { flickr_api.query_by_keyword(keyword) }
 
-  describe 'Test download and delete features' do
+  describe '.download' do
     it 'fails downloading a photo' do
       expect(download.download).to be_nil
     end
 
-    it 'downloads a photo' do
+    it 'download a photo' do
       expect(download.download(url)).to_not be_nil
     end
 

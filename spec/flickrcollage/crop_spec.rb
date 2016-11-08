@@ -6,7 +6,7 @@ describe FlickrService::Crop do
   let(:crop) { FlickrService::Crop }
   let(:keywords) { ['Hamburg','Germany'] }
 
-  describe "Test the images returned from Crop" do
+  describe ".crop" do
 
     it "have the size: width 640 height 480" do
       urls = keywords.map do |keyword|

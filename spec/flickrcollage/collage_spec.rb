@@ -12,7 +12,7 @@ describe FlickrService::Collage do
     end
   end
 
-  describe "Test the images collage grid feature" do
+  describe ".collage" do
     let(:collage) { collage_service.mount(img_list) }
 
     it "return a collage grid with the width of 5 images" do
