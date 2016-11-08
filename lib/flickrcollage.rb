@@ -4,7 +4,7 @@ module FlickrCollage
   class App
 
     def self.begin(keywords, filename)
-      #dictionary = FlickrService::Dictionary.new
+      dictionary = FlickrService::Dictionary
       flickr_api = FlickrService::FlickrApi.new
       collage_service = FlickrService::Collage
       crop_service = FlickrService::Crop
@@ -14,12 +14,12 @@ module FlickrCollage
         flickr_api.query_by_keyword(keyword)
       end.compact
 
-      # TODO: Implement dictionary first
-      #while urls.length != 10
-        #keyword = dictionary.class.read
-        #url = flickr_api.query_by_keyword(keyword)
-        #urls.push(url) unless url.nil?
-      #end
+      # Get from dictionary if there are less than ten keywords
+      while urls.length != 10
+        keyword = dictionary.read
+        url = flickr_api.query_by_keyword(keyword)
+        urls.push(url) unless url.nil?
+      end
 
       # Crop the images in rectangles 200x200
       images = crop_service.crop_all(urls)

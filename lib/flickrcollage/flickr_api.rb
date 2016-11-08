@@ -15,9 +15,10 @@ module FlickrService
      options = {text: keyword, media: :photos, per_page: 1, page: 1, content_type: 1, sort: 'interestingness-desc' }
      photo = @flickr.photos.search(options).first
 
-     info = @flickr.photos.getInfo(photo_id: photo.id, secret: photo.secret)
-
-     FlickRaw.url_c(info) unless photo.nil?
+     unless photo.nil?
+       info = @flickr.photos.getInfo(photo_id: photo.id, secret: photo.secret)
+       FlickRaw.url_c(info)
+     end
    rescue Exception => e
      raise "Error searching image from flickr: #{e.message}"
    end

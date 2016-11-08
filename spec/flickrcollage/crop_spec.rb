@@ -8,7 +8,7 @@ describe FlickrService::Crop do
 
   describe "Test the images returned from Crop" do
 
-    it "have the size: width 200 height 200" do
+    it "have the size: width 640 height 480" do
       urls = keywords.map do |keyword|
         flickr_api.query_by_keyword(keyword)
       end
@@ -16,8 +16,8 @@ describe FlickrService::Crop do
       cropped_imgs = crop.crop_all(urls)
 
       cropped_imgs.each do |img|
-        expect(img.columns).to eq 200
-        expect(img.rows).to eq 200
+        expect(img.columns).to eq 640
+        expect(img.rows).to eq 480
       end
     end
   end

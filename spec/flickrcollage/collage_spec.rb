@@ -7,7 +7,7 @@ describe FlickrService::Collage do
 
   before do
     for i in 0..9
-      img = Magick::Image.new(200,200)
+      img = Magick::Image.new(640,480)
       img_list << img
     end
   end
@@ -16,7 +16,7 @@ describe FlickrService::Collage do
     let(:collage) { collage_service.mount(img_list) }
 
     it "return a collage grid with the width of 5 images" do
-      expect(collage.columns).to eq 1010
+      expect(collage.columns).to eq 3210
     end
 
     it "save the collage img in disk" do

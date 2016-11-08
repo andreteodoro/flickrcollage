@@ -5,8 +5,8 @@ module FlickrService
 
     # Use rmagick to assembles a collage grid from ten image urls
     def self.mount(images)
-      width = 200
-      height = 200
+      width = 640
+      height = 480
       margins = 1
       grid = "5x2"
 

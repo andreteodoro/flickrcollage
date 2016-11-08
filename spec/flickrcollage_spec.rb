@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'flickrcollage'
 
 describe FlickrCollage do
-  let(:keywords) { ['Game of Thrones', 'Lost', 'Dexter'] }
+  let(:keywords) { ['Game of Thrones', 'Lost', 'Dexter', 'Sons of Anarchy', 'Prison Break', 'Fringe', 'Hannibal'] }
   let(:filename) { 'Output.jpg' }
 
   it "initialize flickrcollage" do
