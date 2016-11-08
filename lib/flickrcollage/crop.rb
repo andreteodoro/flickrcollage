@@ -3,13 +3,18 @@ require 'rmagick'
 module FlickrService
   class Crop
 
-    # Crop an image in 200x200 rectangles
-    def self.crop(url)
-      magick =  Magick::ImageList.new
-      image = open(url)
+    # Crop all images in 200x200 rectangles
+    # param urls the image urls
+    def self.crop_all(urls)
+      images = Magick::ImageList.new
 
-      magick.from_blob(image.read)
-      magick.crop(0,0,200,200)
+      urls.each do |url|
+        image = Magick::Image.from_blob(open(url).read).first
+        image.crop!(0,0,200,200)
+        images << image
+      end
+
+      images
     end
 
   end

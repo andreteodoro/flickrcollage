@@ -1,5 +1,4 @@
 require 'rmagick'
-#include Magick
 
 module FlickrCollage
   class App
@@ -7,11 +6,10 @@ module FlickrCollage
     def self.begin(keywords, filename)
       #dictionary = FlickrService::Dictionary.new
       flickr_api = FlickrService::FlickrApi.new
-      download = FlickrService::Download
-      crop = FlickrService::Crop
-      crops =  Magick::ImageList.new
-      collage = FlickrService::Collage.new
+      collage_service = FlickrService::Collage
+      crop_service = FlickrService::Crop
 
+      # Search bythe keywords using the Flickr Api
       urls = keywords.take(10).map do |keyword|
         flickr_api.query_by_keyword(keyword)
       end.compact
@@ -23,12 +21,14 @@ module FlickrCollage
         #urls.push(url) unless url.nil?
       #end
 
-      photos = urls.map{|url| download.download(url)}
+      # Crop the images in rectangles 200x200
+      images = crop_service.crop_all(urls)
 
-      crops << crop.crop(photos)
+      # Mount a grid collage with the images
+      images = collage_service.mount(images)
 
-      collage.mount(photos)
-      #collage.write("#{filename}.jpg")
+      # Save the file
+      collage_service.write(images, filename)
 
       true
     end
