@@ -56,11 +56,10 @@ Or install it yourself as:
 
 ## Usage
 
-flickrcollage --keywords='etventure germany hamburg amazing country' --filename='result.jpg'
+    $ flickrcollage -h
+    Type this for help
 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/flickrcollage. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+    $ flickrcollage --keywords='etventure germany hamburg amazing country' --filename='result.jpg'
 
 
 ## License
