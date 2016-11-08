@@ -33,7 +33,8 @@ command = Cri::Command.define do
     keywords = opts.fetch(:keywords, "").split
     filename = opts.fetch(:filename, nil)
 
-    FlickrCollage::FlickrCollage.begin(keywords, filename)
+
+    FlickrCollage::App.begin(keywords, filename)
   end
 
 end

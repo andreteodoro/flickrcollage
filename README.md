@@ -56,7 +56,7 @@ Or install it yourself as:
 
 ## Usage
 
-words_to_image --keywords="etventure germany hamburg amazing country" --filename='result.jpg'
+flickrcollage --keywords='etventure germany hamburg amazing country' --filename='result.jpg'
 
 ## Contributing
 

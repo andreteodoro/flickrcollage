@@ -1,3 +1,8 @@
+require "flickrcollage/dictionary"
+require "flickrcollage/flickr_api"
+require "flickrcollage/download"
+require "flickrcollage/crop"
+require "flickrcollage/collage"
 require 'rmagick'
 
 module FlickrCollage
