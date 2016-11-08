@@ -56,10 +56,11 @@ Or install it yourself as:
 
 ## Usage
 
-    $ flickrcollage -h
-    Type this for help
-
-    $ flickrcollage --keywords='etventure germany hamburg amazing country' --filename='result.jpg'
+   Type for help:
+   & flickrcollage -h
+    
+    
+   & flickrcollage --keywords='etventure germany hamburg amazing country' --filename='result.jpg'
 
 
 ## License
