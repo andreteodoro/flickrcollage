@@ -4,8 +4,14 @@ module FlickrService
  class FlickrApi
 
    def initialize
-     FlickRaw.api_key = "796cb009c4299d87049aaf1d12a47a9e"
-     FlickRaw.shared_secret = "f6200bb48e6ac749"
+     # try to get the environment variables for the Flickr API Keys, if not existent use mine
+     unless ENV['FLICKR_API_KEY'].nil? or ENV['FLICKR_API_SECRET'].nil?
+       FlickRaw.api_key = ENV['FLICKR_API_KEY']
+       FlickRaw.shared_secret = ENV['FLICKR_API_SECRET']
+     else
+       FlickRaw.api_key = "796cb009c4299d87049aaf1d12a47a9e"
+       FlickRaw.shared_secret = "f6200bb48e6ac749"
+     end
      @flickr = FlickRaw::Flickr.new
    end
 

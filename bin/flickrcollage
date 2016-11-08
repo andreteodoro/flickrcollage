@@ -38,3 +38,5 @@ command = Cri::Command.define do
   end
 
 end
+
+command.run(ARGV)
