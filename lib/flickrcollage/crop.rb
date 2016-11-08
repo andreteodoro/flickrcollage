@@ -1,4 +1,7 @@
 require 'rmagick'
+require 'openssl'
+
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 module FlickrService
   class Crop
