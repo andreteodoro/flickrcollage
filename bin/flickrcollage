@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require './lib/flickrcollage'
+require 'cri'
+
+command = Cri::Command.define do
+  name        'flickrcollage'
+  usage       'flickrcollage [options]'
+  summary     'A collage grid based on flickr search results'
+  description %q{
+    Accepts a list of search keywords as arguments,
+    queries the Flickr API for the top-rated image for each keyword,
+    downloads the results,
+    crops them rectangularly,
+    assembles a collage grid from ten images and writes the result to a user-supplied filename.
+
+    If given less than ten keywords, or if any keyword fails to
+    result in a match, retrieve random words from a dictionary
+    source such as `/usr/share/dict/words`. Repeat as necessary
+    until you have gathered ten images.
+  }
+
+  flag   :h,  :help,  'show help for this command' do |value, cmd|
+    puts cmd.help
+    exit 0
+  end
+
+  option :f, :filename, 'filename where to write the result', argument: :required
+  option :k, :keywords, 'keywords to search for', argument: :required
+
+  run do |opts, args, cmd|
+    keywords = opts.fetch(:keywords, "").split
+    filename = opts.fetch(:filename, nil)
+
+    App = FlickrCollage::FlickrCollage.new
+    App.begin(keywords, filename)
+  end
+
+end
