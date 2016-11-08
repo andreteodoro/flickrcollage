@@ -2,17 +2,20 @@ require 'spec_helper'
 
 describe FlickrService::Collage do
 
+  let(:collage) { FlickrService::Collage }
+  let(:magick) { Magick::ImageList.new }
+
   before do
-    @magick = Magick::ImageList.new
+    #magick = Magick::ImageList.new
     for i in 0..9
       img = Magick::Image.new(200,200)
-      @magick << img
+      magick << img
     end
   end
 
   describe "Test the images collage grid feature" do
     it "return a collage grid with the width of 5 images" do
-      expect(FlickrService::Collage.mount(@magick).columns).to eq 1100
+      expect(collage.mount(magick).columns).to eq 1100
     end
   end
 
