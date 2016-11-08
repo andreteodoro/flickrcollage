@@ -26,6 +26,18 @@ install and run your application.
 Hint: You're free to use any existing Gem which helps you to
 get the challenge done.
 
+## Requirements
+
+Install [ImageMagick](http://www.imagemagick.org/). On OS X it can be done with Homebrew `brew install imagemagick`.
+
+The application is using my keys to access the Flickr Api, if you want to generate and use your own follow these steps:
+Obtain Flickr API key from https://www.flickr.com/services/apps/create/apply
+Export them as environment variables
+```bash
+export FLICKR_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx # Replace with your key
+export FLICKR_API_SECRET=xxxxxxxxxxxxxxxx # Replace with your secret
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -44,13 +56,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+words_to_image --keywords="etventure germany hamburg amazing country" --filename='result.jpg'
 
 ## Contributing
 
