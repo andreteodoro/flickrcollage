@@ -26,6 +26,11 @@ Export them as environment variables
 export FLICKR_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx # Replace with your key
 export FLICKR_API_SECRET=xxxxxxxxxxxxxxxx # Replace with your secret
 ```
+Or modify this file /config/credentials.yml
+```bash
+api_key: yourapikeyhere
+shared_secret: yoursecretkeyhere
+```
 
 ## Installation
 

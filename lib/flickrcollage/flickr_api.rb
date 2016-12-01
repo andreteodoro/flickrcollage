@@ -1,11 +1,14 @@
 require 'flickraw'
+require 'yaml'
 
  class FlickrApi
 
    def initialize
-     # try to get the environment variables for the Flickr API Keys, if not existent use mine
-     FlickRaw.api_key = ENV['FLICKR_API_KEY'] || "796cb009c4299d87049aaf1d12a47a9e"
-     FlickRaw.shared_secret = ENV['FLICKR_API_SECRET'] || "f6200bb48e6ac749"
+     # try to get the environment variables for the Flickr API Keys, if not existent use the existent at the credentials.yml file
+     config = YAML.load_file('./config/credentials.yml')
+
+     FlickRaw.api_key = ENV['FLICKR_API_KEY'] || config['api_key']
+     FlickRaw.shared_secret = ENV['FLICKR_API_SECRET'] || config['shared_secret']
 
      @flickr = FlickRaw::Flickr.new
    end

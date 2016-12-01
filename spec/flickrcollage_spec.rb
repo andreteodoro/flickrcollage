@@ -7,7 +7,7 @@ describe FlickrCollage do
 
   it ".flickrcollage" do
     expect(FlickrCollage::App.begin(keywords, filename)).to be true
-    #FileUtils.rm 'Output.jpg'
+    FileUtils.rm 'Output.jpg'
   end
 
 end
