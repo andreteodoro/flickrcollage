@@ -1,38 +1,36 @@
 require "flickrcollage/dictionary"
 require "flickrcollage/flickr_api"
-require "flickrcollage/crop"
-require "flickrcollage/collage"
+require "flickrcollage/image"
+require "flickrcollage/images_processor"
 require 'rmagick'
 
 module FlickrCollage
   class App
 
     def self.begin(keywords, filename)
-      dictionary = FlickrService::Dictionary
-      flickr_api = FlickrService::FlickrApi.new
-      collage_service = FlickrService::Collage
-      crop_service = FlickrService::Crop
+      flickr = FlickrApi.new
+      image_processor = ImagesProcessor.new
 
-      # Search bythe keywords using the Flickr Api
-      urls = keywords.take(10).map do |keyword|
-        flickr_api.query_by_keyword(keyword)
+      # Search by the keywords using the Flickr Api
+      urls = keywords.take(12).map do |keyword|
+        flickr.query_by_keyword(keyword)
       end.compact
 
-      # Get from dictionary if there are less than ten keywords
-      while urls.length != 10
-        keyword = dictionary.read
-        url = flickr_api.query_by_keyword(keyword)
+      # Get from dictionary if there are less than twelve keywords
+      while urls.length != 12
+        keyword = Dictionary.read
+        url = flickr.query_by_keyword(keyword)
         urls.push(url) unless url.nil?
       end
 
       # Crop the images in rectangles 200x200
-      images = crop_service.crop_all(urls)
+      cropped_images = image_processor.crop(urls)
 
       # Mount a grid collage with the images
-      images = collage_service.mount(images)
+      collage = image_processor.collage(cropped_images)
 
       # Save the file
-      collage_service.write(images, filename)
+      Image.save(collage, filename)
 
       true
     end

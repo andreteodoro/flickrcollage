@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe FlickrService::FlickrApi do
+describe FlickrApi do
 
-  let(:flickr_api) { FlickrService::FlickrApi.new }
-  let(:keyword) { 'Etventure' }
+  let(:flickr_api) { FlickrApi.new }
+  let(:keyword) { 'Cars' }
 
   UrlRegex = /https?:\/\/[-_a-zA-Z0-9.\/]+/
 
