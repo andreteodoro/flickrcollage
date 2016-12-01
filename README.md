@@ -17,6 +17,8 @@ until you have gathered ten images.
 
 Install [ImageMagick](http://www.imagemagick.org/). On OS X it can be done with Homebrew `brew install imagemagick`.
 
+Install [RMagick](https://github.com/rmagick/rmagick). On OS X it can be done with Homebrew `brew install rmagick`.
+
 The application is using my keys to access the Flickr Api, if you want to generate and use your own follow these steps:
 Obtain Flickr API key from https://www.flickr.com/services/apps/create/apply
 Export them as environment variables
