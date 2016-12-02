@@ -1,7 +1,7 @@
-require "flickrcollage/dictionary"
-require "flickrcollage/flickr_api"
-require "flickrcollage/image"
-require "flickrcollage/images_processor"
+require 'flickrcollage/dictionary'
+require 'flickrcollage/flickr_api'
+require 'flickrcollage/image'
+require 'flickrcollage/images_processor'
 require 'rmagick'
 
 module FlickrCollage

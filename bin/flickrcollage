@@ -30,7 +30,7 @@ command = Cri::Command.define do
   option :k, :keywords, 'keywords to search for', argument: :required
 
   run do |opts, args, cmd|
-    keywords = opts.fetch(:keywords, "").split
+    keywords = opts.fetch(:keywords, '').split
     filename = opts.fetch(:filename, nil)
 
 

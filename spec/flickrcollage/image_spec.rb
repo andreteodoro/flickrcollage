@@ -6,22 +6,22 @@ describe Image do
   let(:img_list) { Magick::ImageList.new }
 
   before do
-    for i in 0..9
-      img = Magick::Image.new(640,480)
+    (0..9).each { |i|
+      img = Magick::Image.new(640, 480)
       img_list << img
-    end
+    }
   end
 
-  describe ".save" do
+  describe '.save' do
     let(:collage) { images_processor.collage(img_list) }
 
-    it "save the collage img in disk" do
+    it 'save the collage img in disk' do
       Image.save(collage, 'image.jpg')
       expect(File.exist?('image.jpg')).to be true
       FileUtils.rm 'image.jpg'
     end
 
-    it "save the collage img without extension in disk" do
+    it 'save the collage img without extension in disk' do
       Image.save(collage, 'image')
       expect(File.exist?('image.jpg')).to be true
       FileUtils.rm 'image.jpg'
