@@ -23,39 +23,46 @@ The application is using my keys to access the Flickr Api, if you want to genera
 Obtain Flickr API key from https://www.flickr.com/services/apps/create/apply
 Export them as environment variables
 ```bash
-export FLICKR_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx # Replace with your key
-export FLICKR_API_SECRET=xxxxxxxxxxxxxxxx # Replace with your secret
+    export FLICKR_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx # Replace with your key
+    export FLICKR_API_SECRET=xxxxxxxxxxxxxxxx # Replace with your secret
 ```
 Or modify this file /config/credentials.yml
-```bash
-api_key: yourapikeyhere
-shared_secret: yoursecretkeyhere
+```ruby
+    api_key: yourapikeyhere
+    shared_secret: yoursecretkeyhere
 ```
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-```ruby
-gem 'flickrcollage'
+```bash
+    gem 'flickrcollage'
 ```
 
 And then execute:
 
+```bash
     $ bundle
+```
 
 Or install it yourself as:
 
+```bash
     $ gem install flickrcollage
+```
 
 ## Usage
 
-   Type for help:
-   & flickrcollage -h
-    
-    
-   & flickrcollage --keywords='etventure germany hamburg amazing country' --filename='result.jpg'
-
+```bash
+   $ flickrcollage -k house cars bus dog star germany netherlands amazing countries -f result.jpg
+```
+   
+   If you need help:
+   
+```bash      
+   $ flickrcollage -h
+```
 
 ## License
 

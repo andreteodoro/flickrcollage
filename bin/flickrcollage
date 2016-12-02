@@ -15,7 +15,7 @@ command = Cri::Command.define do
     crops them rectangularly,
     assembles a collage grid from ten images and writes the result to a user-supplied filename.
 
-    If given less than ten keywords, or if any keyword fails to
+    If given less than twelve keywords, or if any keyword fails to
     result in a match, retrieve random words from a dictionary
     source such as `/usr/share/dict/words`. Repeat as necessary
     until you have gathered ten images.
